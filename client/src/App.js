@@ -1,18 +1,29 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navigation from "./components/Navigation/Navigation"
+import Search from "./components/Pages/Search/Search"
+import Saved from "./components/Pages/Saved/Saved"
 import "./App.css";
 
 class App extends Component {
+     state = {
+          foundBooks:[],
+          savedBooks:[],
+          searchTerm:""
+
+     }
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+          <Router>
+               <div>
+                    <Navigation/>
+                    <Switch>
+                         <Route exact path="/" component={Search}/>
+                         <Route exact path="/saved" component={Saved}/>
+                    </Switch>
+               </div>
+          </Router>
       </div>
     );
   }
