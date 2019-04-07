@@ -15,6 +15,9 @@ export default class Saved extends React.PureComponent {
                this.setState({savedBooks: bookReults.data});
           });
      }
+     toggleFavorites = arg => {
+          alert(arg)
+               }
      render(){
           return (
                <>
@@ -25,6 +28,8 @@ export default class Saved extends React.PureComponent {
                                    <Book
                                    key={book.id}
                                    book={book}
+                                   isbm = {book.volumeInfo.industryIdentifiers[0].identifier}
+                                   clickedFav = {this.toggleFavorites}
                                    />
                               )
                          })}

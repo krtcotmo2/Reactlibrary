@@ -6,7 +6,9 @@ const bookSchema = new Schema({
   author: { type: String, required: true },
   synopsis: String,
   date: { type: Date, default: Date.now },
-  isFavorite: {type: Boolean, default:false}
+  link: {type: String},
+  pageCount: {type: Number},
+  isbm: {type: String,  unique : true, required : true},
 });
 
 const Book = mongoose.model("Book", bookSchema);
