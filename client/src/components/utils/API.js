@@ -2,7 +2,6 @@ import axios from "axios";
 
 export default {
   // Gets all books
-  getBooks: function() {
-    return axios.get("/api/books");
-  }
+  getBooks: ()  => axios.get("/api/books"),
+  searchBooks: (arg) => axios.get(`https://www.googleapis.com/books/v1/volumes?q=${arg}`)
 };
