@@ -6,12 +6,7 @@ import Saved from "./components/Pages/Saved/Saved"
 import "./App.css";
 
 class App extends Component {
-     state = {
-          foundBooks:[],
-          savedBooks:[],
-          searchTerm:""
-
-     }
+    
   render() {
     return (
       <div className="App">
