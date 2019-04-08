@@ -6,21 +6,15 @@ import Book from "../../Book/Book"
 class Search extends React.PureComponent {
      state = {
           foundBooks:[],
-          searchTerm:""
+          searchTerm:"best seller list"
      }
      componentDidMount() {
-          //this.loadBooks();
+          this.doSearch();
      }
-     loadBooks = () => {
-          API.getBooks()
-          .then(bookReults => {
-               this.setState({foundBooks: bookReults.data});
-               
-          });
-     };
-
+    
      doSearch = (event) => {
-          event.preventDefault();
+          if(event)
+               event.preventDefault();
           API.searchBooks(this.state.searchTerm)
           .then((response)=>{
                this.setState({foundBooks: response.data.items});
@@ -45,7 +39,9 @@ class Search extends React.PureComponent {
      render(){
           return (
                <>
-                    <h1>Search</h1>
+                    <div className="container">
+                         <h1>Search</h1>
+                    </div>                    
                     <SearchPanel searchClick = {this.doSearch} searhTerm={this.state.searchTerms} typeWord={this.handleInputChange}/>
                     <div className="bookHolder">
                          {this.state.foundBooks.map((book, ind ) => {

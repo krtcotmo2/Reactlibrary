@@ -21,14 +21,16 @@ export default class Saved extends React.PureComponent {
      render(){
           return (
                <>
-                    <h1>Saved</h1>
+                    <div className="container">
+                         <h1>Saved</h1>
+                    </div>
                     <div className="bookHolder">
                          {this.state.savedBooks.map(book => {
                               return (
                                    <Book
                                    key={book.id}
                                    book={book}
-                                   isbm = {book.volumeInfo.industryIdentifiers[0].identifier}
+                                   isbm = {book.isbm == undefined ? "":book.isbm}
                                    clickedFav = {this.toggleFavorites}
                                    />
                               )

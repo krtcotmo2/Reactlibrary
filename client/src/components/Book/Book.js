@@ -1,13 +1,13 @@
 import React from "react";
 import "./Book.css";
 
-export default function Book(props) {
+ function Book(props) {
   return (
     <article className="aBook p-3">
       <div className="card">
         <div className="card-header d-flex justify-content-between">
           <div><a href={props.book.link} target="_blank">{props.book.title}</a></div>
-          <div><button className="btn-smy btn-secondary" onClick={() => props.clickedFav(props.isbm)}>Add to favorites</button></div>
+          <div><button className={evalVis(props.isbm)} onClick={() => props.clickedFav(props.isbm)}>Add to favorites</button></div>
         </div>
         <div className="card-body">
           <div className="px-3 mb-3 row">By: {props.book.author}</div>
@@ -26,3 +26,9 @@ export default function Book(props) {
     </article>
   );
 }
+let evalVis = (arg) => {
+     if(arg === "") 
+          return "d-none";
+     return "btn-smy btn-secondary";
+}
+export default Book;
