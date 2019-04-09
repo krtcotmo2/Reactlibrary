@@ -50,7 +50,7 @@ class Search extends React.PureComponent {
                     this.setState({savedBooks :newSaved});
                })
           }else{
-               let aBook = this.state.foundBooks.find(x => x.volumeInfo.industryIdentifiers[0].identifier == arg);
+               let aBook = this.state.foundBooks.find(x => x.volumeInfo.industryIdentifiers != undefined && x.volumeInfo.industryIdentifiers[0].identifier == arg);
                let bookObj={
                     author:aBook.volumeInfo.authors,
                     title:aBook.volumeInfo.title,
@@ -90,9 +90,9 @@ class Search extends React.PureComponent {
                                    <Book
                                    key={ind}
                                    book={adjustedVal}
-                                   isbn={book.volumeInfo.industryIdentifiers[0].identifier}
+                                   isbn={book.volumeInfo.industryIdentifiers == undefined ? "":book.volumeInfo.industryIdentifiers[0].identifier}
                                    clickedFav = {this.toggleFavorites}
-                                   isLiked= {this.state.savedBooks.filter(x => x.isbn ==book.volumeInfo.industryIdentifiers[0].identifier).length > 0}
+                                   isLiked= {book.volumeInfo.industryIdentifiers == undefined ? false : this.state.savedBooks.filter(x => x.isbn == book.volumeInfo.industryIdentifiers[0].identifier).length > 0}
                                    />
                               )
                          })}
