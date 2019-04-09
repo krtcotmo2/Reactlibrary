@@ -8,19 +8,20 @@ const app = express();
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// Use Routess folder
+app.use(routes);
+
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
      app.use(express.static("client/build"));
      app.get("*", (req, res) =>{
           //path.join(__dirname, "client","build","index.html" )
           res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-     })
-}
+     })     
+}     
 
 // Define API routes here
-
-// Use Routess folder
-app.use(routes);
 
 
 // Connect to the Mongo DB
