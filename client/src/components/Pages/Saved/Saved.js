@@ -19,8 +19,8 @@ export default class Saved extends React.PureComponent {
           API.removeBook(arg)
                .then(results => {
                     console.log('results',results)
-                    let newSaved = this.state.savedBooks.filter(x => x.isbn !== arg);
-                    this.setState({savedBooks :newSaved});
+                    //let newSaved = this.state.savedBooks.filter(x => x.isbn !== arg);
+                    //this.setState({savedBooks :newSaved});
                })
      }
      render(){
