@@ -15,13 +15,18 @@ export default class Saved extends React.PureComponent {
                this.setState({savedBooks: bookReults.data});
           });
      }
-     toggleFavorites = arg => {
-          alert(arg)
-               }
+     removeFavorite = arg => {
+          API.removeBook(arg)
+               .then(results => {
+                    console.log('results',results)
+                    let newSaved = this.state.savedBooks.filter(x => x.isbn !== arg);
+                    this.setState({savedBooks :newSaved});
+               })
+     }
      render(){
           return (
                <>
-                    <div className="container">
+                    <div className="container col-11 col-md-8 mx-auto my-5">
                          <h1>Saved</h1>
                     </div>
                     <div className="bookHolder">
@@ -30,8 +35,9 @@ export default class Saved extends React.PureComponent {
                                    <Book
                                    key={book.id}
                                    book={book}
-                                   isbm = {book.isbm == undefined ? "":book.isbm}
-                                   clickedFav = {this.toggleFavorites}
+                                   isbn = {book.isbn == undefined ? "":book.isbn}
+                                   clickedFav = {this.removeFavorite}
+                                   isLiked = {true}
                                    />
                               )
                          })}
