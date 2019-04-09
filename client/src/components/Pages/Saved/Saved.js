@@ -15,21 +15,29 @@ export default class Saved extends React.PureComponent {
                this.setState({savedBooks: bookReults.data});
           });
      }
-     toggleFavorites = arg => {
-          alert(arg)
-               }
+     removeFavorite = arg => {
+          API.removeBook(arg)
+               .then(results => {
+                    console.log('results',results)
+                    let newSaved = this.state.savedBooks.filter(x => x.isbn !== arg);
+                    this.setState({savedBooks :newSaved});
+               })
+     }
      render(){
           return (
                <>
-                    <h1>Saved</h1>
+                    <div className="container col-11 col-md-8 mx-auto my-5">
+                         <h1>Saved</h1>
+                    </div>
                     <div className="bookHolder">
                          {this.state.savedBooks.map(book => {
                               return (
                                    <Book
                                    key={book.id}
                                    book={book}
-                                   isbm = {book.volumeInfo.industryIdentifiers[0].identifier}
-                                   clickedFav = {this.toggleFavorites}
+                                   isbn = {book.isbn == undefined ? "":book.isbn}
+                                   clickedFav = {this.removeFavorite}
+                                   isLiked = {true}
                                    />
                               )
                          })}

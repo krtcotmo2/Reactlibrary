@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation"
 import Search from "./components/Pages/Search/Search"
 import Saved from "./components/Pages/Saved/Saved"
+import NotFound from "./components/Pages/NotFound/NotFound"
 import "./App.css";
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
                     <Switch>
                          <Route exact path="/" component={Search}/>
                          <Route exact path="/saved" component={Saved}/>
+                         <Route exact path="*" component={NotFound}/>
                     </Switch>
                </div>
           </Router>
