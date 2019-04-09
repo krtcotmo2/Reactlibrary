@@ -23,6 +23,7 @@ export default class Saved extends React.PureComponent {
                     this.setState({savedBooks :newSaved});
                })
      }
+  
      render(){
           return (
                <>
@@ -30,7 +31,7 @@ export default class Saved extends React.PureComponent {
                          <h1>Saved</h1>
                     </div>
                     <div className="bookHolder">
-                         {this.state.savedBooks.map(book => {
+                         {this.state.savedBooks.map((book) => {
                               return (
                                    <Book
                                    key={book.id}
