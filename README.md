@@ -37,7 +37,7 @@ Model:
 
 ```
 
-To reproduce the repository locally you will need to establish a new collection in your local machine. The line I have for connecting to the db is in the server.js file , line 28. Adjust accordingly. 
+To reproduce the repository locally you will need to establish a new storage in your local machine. If you are not using Mongo you will also need to modify the models and the controllers. Regardless of your storage type, you will need to adjust the connection as well. The line I have for connecting to the db is in the server.js file, line 28. Adjust accordingly. 
 ```
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
