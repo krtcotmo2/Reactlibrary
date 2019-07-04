@@ -36,3 +36,16 @@ Model:
 }
 
 ```
+
+To reproduce the repository locally you will need to establish a new collection in your local machine. The line I have for connecting to the db is in the server.js file , line 28. Adjust accordingly. 
+```
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
+
+```
+Install the node packages by using your installer (yarn, npm, etc.) and start up the services.
+```
+npm install
+npm run start
+```
+
