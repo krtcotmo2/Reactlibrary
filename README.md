@@ -1,6 +1,7 @@
 # [Google library powered by React and Mongo](https://react-myreading-library.herokuapp.com/)
 
 ![alt text](https://img.shields.io/badge/uses-Node-brightgreen.svg) ![alt text](https://img.shields.io/badge/uses-Mongo-brightgreen.svg) ![alt text](https://img.shields.io/badge/uses-Express-brightgreen.svg) ![alt text](https://img.shields.io/badge/uses-Axios-brightgreen.svg)
+
 ![alt text](https://img.shields.io/badge/uses-React-blue.svg)  ![alt text](https://img.shields.io/badge/uses-Bootstrap-blue.svg)
 
 If the Heroku server is asleep it may take a few moments for the default data to load.
