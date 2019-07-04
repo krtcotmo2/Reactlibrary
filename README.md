@@ -10,7 +10,7 @@ Basic exercise with React and MongoDB building on previous knowledge of API call
 
 The top navigation allows the user to toggle between any search and favorites saved.
 
-#How it was built
+## How it was built
 The componentDidMount function uses the google books api to get results using the terms Best Sellers list to get top current books. The system then goes to the Mongo db and gets the users saved books. I preform some mapping of the two lists to find their intersection points and if there is a common book, that book is flagged to have the "Add to favorites" button switch to "Remove from favorites." 
 
 The user has the ability to enter in a keyword value, a topic, an author, a title, etc. to perform a search. The results are returned in a list of book objects.
